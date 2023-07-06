@@ -67,3 +67,21 @@ TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS "Application".teams
     OWNER to postgres;
+
+-- Table: Application.hour_tracking
+
+-- DROP TABLE IF EXISTS "Application".hour_tracking;
+
+CREATE TABLE IF NOT EXISTS "Application".hour_tracking
+(
+    hour_id integer NOT NULL,
+    employee_id integer NOT NULL,
+    project_id integer NOT NULL,
+    total_hours numeric(7,5) NOT NULL,
+    CONSTRAINT hour_tracking_pkey PRIMARY KEY (hour_id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS "Application".hour_tracking
+    OWNER to postgres;
