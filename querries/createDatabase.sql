@@ -85,3 +85,21 @@ TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS "Application".hour_tracking
     OWNER to postgres;
+
+-- Table: Application.project
+
+-- DROP TABLE IF EXISTS "Application".project;
+
+CREATE TABLE IF NOT EXISTS "Application".project
+(
+    project_id integer NOT NULL,
+    name character varying COLLATE pg_catalog."default" NOT NULL,
+    client character varying COLLATE pg_catalog."default" NOT NULL,
+    start_date date NOT NULL,
+    CONSTRAINT project_pkey PRIMARY KEY (project_id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS "Application".project
+    OWNER to postgres;
