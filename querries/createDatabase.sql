@@ -79,6 +79,11 @@ CREATE TABLE IF NOT EXISTS "Application".hour_tracking
     project_id integer NOT NULL,
     total_hours numeric(7,5) NOT NULL,
     CONSTRAINT hour_tracking_pkey PRIMARY KEY (hour_id)
+    CONSTRAINT employee_id FOREIGN KEY (employee_id)
+        REFERENCES "Application".employees (employee_id) MATCH SIMPLE
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+        NOT VALID
 )
 
 TABLESPACE pg_default;
