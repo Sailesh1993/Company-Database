@@ -108,3 +108,20 @@ TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS "Application".project
     OWNER to postgres;
+
+-- Table: Application.team_project
+
+-- DROP TABLE IF EXISTS "Application".team_project;
+
+CREATE TABLE IF NOT EXISTS "Application".team_project
+(
+    team_project_id integer NOT NULL DEFAULT nextval('"Application".team_project_team_project_id_seq'::regclass),
+    team_id integer NOT NULL,
+    project_id integer NOT NULL,
+    CONSTRAINT team_project_pkey PRIMARY KEY (team_project_id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS "Application".team_project
+    OWNER to postgres;

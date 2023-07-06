@@ -1,7 +1,7 @@
-team_name,location
-Team Alpha,Amsterdam
-Team Bravo,Berlin
-Team Charlie,Copenhagen
-Team Delta,Prague
-Team Echo,Helsinki
-Team Foxtrot,Helsinki
+team_id,team_name,location
+1,Team Alpha,Amsterdam
+2,Team Bravo,Berlin
+3,Team Charlie,Copenhagen
+4,Team Delta,Prague
+5,Team Echo,Helsinki
+6,Team Foxtrot,Helsinki
