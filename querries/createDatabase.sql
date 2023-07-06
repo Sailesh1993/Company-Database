@@ -51,3 +51,19 @@ TABLESPACE pg_default;
 ALTER TABLE IF EXISTS "Application".employees
     OWNER to postgres;
 
+-- Table: Application.teams
+
+-- DROP TABLE IF EXISTS "Application".teams;
+
+CREATE TABLE IF NOT EXISTS "Application".teams
+(
+    team_id integer NOT NULL,
+    team_name character varying COLLATE pg_catalog."default" NOT NULL,
+    location character varying COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT teams_pkey PRIMARY KEY (team_id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS "Application".teams
+    OWNER to postgres;
