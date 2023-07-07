@@ -26,3 +26,10 @@ SELECT e.*
 FROM "Application".employees AS e
 JOIN "Application".employees AS manager ON manager.employee_id = e.manager_id
 WHERE manager.first_name = 'Robert' AND manager.last_name = 'Brown';
+
+--Retrieve the average hourly salary for each title
+
+SELECT t.title_name AS title, AVG(e.hourly_salary) AS average_hourly_salary
+FROM "Application".employees AS e
+JOIN "Application".titles AS t ON e.title_id = t.title_id
+GROUP BY title;
