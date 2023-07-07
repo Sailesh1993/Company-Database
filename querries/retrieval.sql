@@ -33,3 +33,15 @@ SELECT t.title_name AS title, AVG(e.hourly_salary) AS average_hourly_salary
 FROM "Application".employees AS e
 JOIN "Application".titles AS t ON e.title_id = t.title_id
 GROUP BY title;
+
+-- Retrieve the employees who have a higher hourly salary than their respective team's average 
+
+SELECT e.*
+FROM "Application".employees AS e
+JOIN(
+	SELECT t.team_id, AVG(e.hourly_salary) AS avg_hourly_salary
+	FROM "Application".employees AS e
+	JOIN "Application".teams AS t ON e.team = t.team_id
+	GROUP BY t.team_id
+) AS team_avg ON e.team = team_avg.team_id
+WHERE e.hourly_salary > team_avg.avg_hourly_salary;
