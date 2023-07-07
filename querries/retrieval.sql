@@ -13,3 +13,16 @@ JOIN "Application".team_project AS tp ON p.project_id = tp.project_id
 JOIN "Application".teams AS t ON tp.team_id = t.team_id
 JOIN "Application".employees AS m ON t.team_id = m.team
 Where m.first_name LIKE 'J%' OR m.first_name LIKE 'D%';
+
+-- Retrieve all the employees (both directly and indirectly) working under Andrew Martin
+SELECT e.*
+FROM "Application".employees AS e
+JOIN "Application".employees AS manager ON manager.employee_id = e.manager_id
+WHERE manager.first_name = 'Andrew' AND manager.last_name = 'Martin';
+
+-- Retrieve all the employees (both directly and indirectly) working under Robert Brown
+
+SELECT e.*
+FROM "Application".employees AS e
+JOIN "Application".employees AS manager ON manager.employee_id = e.manager_id
+WHERE manager.first_name = 'Robert' AND manager.last_name = 'Brown';
