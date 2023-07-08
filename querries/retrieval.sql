@@ -45,3 +45,14 @@ JOIN(
 	GROUP BY t.team_id
 ) AS team_avg ON e.team = team_avg.team_id
 WHERE e.hourly_salary > team_avg.avg_hourly_salary;
+
+-- Retrieve the projects that have more than 3 teams assigned to them
+
+SELECT p.*
+FROM "Application".project AS p
+JOIN (
+	SELECT project_id, COUNT(team_id) AS team_count
+	FROM "Application".team_project
+	GROUP BY project_id
+	Having COUNT(team_id) > 3
+) AS project_team ON p.project_id = project_team.project_id;
